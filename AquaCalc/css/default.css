@@ -1,0 +1,86 @@
+﻿.calculator-container {
+    max-width: 1150px;
+    text-align: left;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    font-family: KaiTi;
+    text-align: center;
+}
+
+p, label {
+    font-family: 'Lao UI';
+}
+
+/*label, #output p {
+    color: #e0e0e0;
+}*/
+
+.section_left {
+    float: left;
+    width: 60px;
+    height: 100%;
+}
+
+.section_right {
+    margin-left: 60px;
+    height: 100%;
+}
+
+p {
+    margin: 6px;
+}
+
+
+.calculator-input {
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 48px;
+}
+
+#output {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    margin-bottom:48px;
+    margin-right:15px;
+}
+
+.output label {
+    font-size: 1em;
+}
+
+#output .section {
+    margin-top: 2px;
+    border-bottom: 1px solid #101010;
+}
+
+#output span, #output #siYangTiShi0, #output #siYangTiShi1 {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #dd4444;
+}
+
+input{
+    width:270px;
+    margin:5px;
+    padding:6px;
+    font-size:14px;
+}
+
+select{
+    padding:5px;
+    font-size:14px;
+}
+
+button {
+    margin:5px;
+    font-size:14px;
+    font-weight:bolder;
+    padding:8px;
+    width:80px;
+}

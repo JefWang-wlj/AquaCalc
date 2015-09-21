@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>鱼缸通用计算器</title>
+
+    <!-- WinJS references -->
+    <link href="WinJS/css/ui-light.css" rel="stylesheet" />
+    <script src="WinJS/js/base.js"></script>
+    <script src="WinJS/js/ui.js"></script>
+
+    <!-- AquaCalc references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+
+    <link href="/css/cssNormal.css" rel="stylesheet" media="only screen and (min-width: 768px)" />
+    <link href="/css/cssMobile.css" rel="stylesheet" media="only screen and (max-width: 768px)" />
+
+    <script src="/js/calculate.js"></script>
+</head>
+<body class="win-type-body">
+
+    <!-- Create AppBar -->
+    <!-- BEGINTEMPLATE: Template code for an AppBar -->
+    <div id="createAppBar" data-win-control="WinJS.UI.AppBar" data-win-options="{placement:'bottom'}">
+        <!--<button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdDownload',label:'下载',icon:'download',tooltip:'下载客户端',section:'primary',onclick:Sample.downloadCommand}"></button>-->
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdBack',label:'返回',icon:'back',tooltip:'返回',section:'primary',onclick:Sample.backCommand}"></button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdCalculate',label:'计算',icon:'go',tooltip:'计算',section:'primary',onclick:Sample.calculateCommand}"></button>
+        <!--<button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdShare',label:'收藏夹',icon:'reshare',tooltip:'Share',section:'primary',onclick:Sample.shareCommand}"></button>-->
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdPrint',label:'意见反馈',section:'secondary',onclick:Sample.mailComand}"></button>
+        <!--<hr data-win-control="WinJS.UI.AppBarCommand" data-win-options="{type:'separator',section:'secondary', onclick: Sample.outputCommand}" />
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdAuthor',label:'作者:王林杰',section:'secondary',onclick:Sample.outputCommand}"></button>-->
+    </div>
+
+
+    <div class="calculator-container">
+        <div id="aquariumcalculator-main-form" class="aquariumcalculator-main-form">
+            <div class="calculator-input">
+                <div style="padding:15px 12px 10px 12px;">
+                    <header>
+                        <h3 style="text-align:center;width:300px;font-family:'Microsoft YaHei UI'">鱼缸通用计算器</h3>
+                    </header>
+                    <div>
+                        <!--<p>请输入鱼缸信息</p>-->
+                        <div id="yuGangGai" data-win-control="WinJS.UI.ToggleSwitch" data-win-options="{title: '鱼缸是否加盖',labelOn:'有',labelOff:'无'}">
+                        </div>
+
+                        <label>鱼缸水体尺寸：</label> <br />
+                        <input id="chang" type="number" placeholder="长:cm(厘米)" />
+                        <input id="kuan" type="number" placeholder="宽:cm(厘米)" />
+                        <input id="gao" type="number" placeholder="高:cm(厘米)" data-win-control="WinJS.UI.Tooltip" data-win-options="{innerHTML: '扣除底砂高度'}" />
+
+                        <br />
+
+                        <label>底砂类型与厚度：</label>
+                        <select id="diShaLeiXing">
+                            <option value="2.75">砂石类</option>
+                            <option value="1.6">草泥类</option>
+                            <option value="0">无底砂</option>
+                        </select>
+                        <input id="diShaHouDu" type="number" placeholder="厚:cm（厘米）" />
+                        <br />
+
+
+                        <label>室内温度：</label>
+                        <input id="shiNeiWenDu" type="number" max="45" min="-10" placeholder="室内温度：℃（摄氏度）" />
+
+                        <br />
+
+                        <label>鱼缸恒温：</label>
+                        <input id="yuGangHengWen" type="number" max="45" min="-10" placeholder="鱼缸恒温：℃（摄氏度）" />
+                        <br />
+                        <button id="runCalculate" class="win-button">计算</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="aquariumcalculator-result" class="aquariumcalculator-result">
+            <div id="output">
+                <div class="section" style="border-left:5px solid #e0e0e0;">
+                    <div class="section_container" style="height:100%">
+                        <div class="section_left">
+                            <p style="font-weight:bolder">水体</p>
+                        </div>
+                        <div class="section_right">
+                            <p>鱼缸水体容量为 <span id="shuiTiRongLiang">___</span> L（升），底砂容量为 <span id="diShaRongLiang">___</span> L（升）</p>
+                            <p>水体重量 <span id="shuiTiZhongLiang">___</span> Kg（公斤）,底砂重量 <span id="diShaZhongLiang">___</span> Kg. 鱼缸重量 <span id="yuGangZhongLiang">___</span> Kg,总重量<span id="zongZhongLiang">___</span> Kg.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" style="border-left:5px solid #dd4444;">
+                    <div class="section_container" style="height:100%">
+                        <div class="section_left">
+                            <p style="font-weight:bolder">加温</p>
+                        </div>
+                        <div class="section_right">
+                            <p>1.根据经验值1.5W/L，加热棒功率应为 <span id="jiaReBangGongLv">___</span> W（瓦）</p>
+                            <p data-win-control="WinJS.UI.Tooltip" data-win-options="{innerHTML: '因室内空气对流强度不同而存在差异，若采用上滤，则应适当增加，仅供参考'}">2.根据室内与鱼缸温差，结合对流辐射联合表面传热经验公式，鱼缸需要加热棒为 <span id="jiaReBangWaShu">___</span> W（瓦）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" style="border-left:5px solid #00ff21;">
+                    <div class="section_container" style="height:100%">
+                        <div class="section_left">
+                            <p style="font-weight:bolder">照明</p>
+                        </div>
+                        <div class="section_right">
+                            <p data-win-control="WinJS.UI.Tooltip" data-win-options="{innerHTML: '视水草品种，生长而定'}">1.根据经验值0.5-1w/L，灯管功率约为 <span id="dengGuanGongLvCong">___</span> - <span id="dengGuanGongLvZhi">___</span> W （瓦）</p>
+                            <p data-win-control="WinJS.UI.Tooltip" data-win-options="{innerHTML: 'W = 12.25 x L0.46，特别适合于中型草缸'}">2.根据John Fitch草缸照明公式，最佳照明功率为 <span id="zuiJiaZhaoMingGongLv">___</span> W（瓦）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" style="border-left:5px solid #0094ff;">
+                    <div class="section_container" style="height:100%">
+                        <div class="section_left">
+                            <p style="font-weight:bolder">过滤</p>
+                        </div>
+                        <div class="section_right">
+                            <p>  建议过滤器流量为水体容积的3－5倍/小时，即 <span id="guoLvCong">___</span> 至 <span id="guoLvZhi">___</span> L/H（升/小时），但不宜超过 <span id="guoLvChao">___</span> L/H。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" style="border-left:5px solid #ffd800;">
+                    <div class="section_container" style="height:100%">
+                        <div class="section_left">
+                            <p style="font-weight:bolder">Dr.<br />Tank</p>
+                        </div>
+                        <div class="section_right">
+                            <p>药剂使用量: <span id="aquariumExperts">___</span> mL（毫升）</p>
+                            <p><span>活性硝化菌</span>：迅速去除水中有毒氨氮</p>
+                            <p><span>水草液态碳</span>：提供水草CO2以外的碳源</p>
+                            <p><span>水草液肥</span>：内含水草所需的各类元素</p>
+                            <p><span>净水剂</span>：去除黄水/绿水/浑水</p>
+                            <p><span>水质稳定/调理剂</span>：除去自来水中氯气及重金属内含矿物成分可调理出最佳水质</p>
+                            <p><span>除蜗牛/涡虫</span>：不伤水草及活体</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="section" style="border-left:5px solid #ff00dc;">
+                    <div class="section_container" style="height:100%">
+                        <div class="section_left">
+                            <p style="font-weight:bolder">饲养</p>
+                        </div>
+                        <div class="section_right">
+                            <div>
+                                <p>1.根据水体计算（按每升水养1厘米鱼的经验值）</p>
+                                <p id="siYangTiShi0">_______________________</p>
+                            </div>
+                            <div data-win-control="WinJS.UI.Tooltip" data-win-options="{innerHTML: '适合不进行充氧及滴流过滤的裸缸，草缸可适当增加'}">
+                                <p>2.根据水面面积计算鱼只的方法，热带鱼每厘米体长（不含尾鳍）需30平方厘米水面，金鱼需60平方厘米。</p>
+                                <p id="siYangTiShi1">_______________________</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
