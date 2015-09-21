@@ -1,52 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
-
-  <Identity
-    Name="94df33cf-f6b7-4443-af79-a1307e38d193"
-    Version="1.0.0.0"
-    Publisher="CN=wxn2l" />
-
-  <mp:PhoneIdentity PhoneProductId="94df33cf-f6b7-4443-af79-a1307e38d193" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="33629.4870060B85307" Version="1.3.1.0" Publisher="CN=64D5F0B3-1AA2-4A88-9380-F1F9F38B9A7D" />
+  <mp:PhoneIdentity PhoneProductId="94df33cf-f6b7-4443-af79-a1307e38d193" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>AquaCalc</DisplayName>
-    <PublisherDisplayName>wxn2l</PublisherDisplayName>
+    <DisplayName>鱼缸通用计算器</DisplayName>
+    <PublisherDisplayName>王林杰</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
     <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application 
-      Id="App"
-      StartPage="default.html">
-
-      <uap:VisualElements
-        DisplayName="AquaCalc"
-        Description="AquaCalc"
-        BackgroundColor="transparent"
-        Square150x150Logo="images\Square150x150Logo.png"
-        Square44x44Logo="images\Square44x44Logo.png">
-
-        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png"/>
+    <Application Id="App" StartPage="default.html">
+      <uap:VisualElements DisplayName="鱼缸通用计算器" Description="鱼缸通用计算器" BackgroundColor="transparent" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+        <uap:LockScreen Notification="badge" BadgeLogo="images\BadgeLogo.png" />
+        <uap:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png">
+        </uap:DefaultTile>
         <uap:SplashScreen Image="images\splashscreen.png" />
-
       </uap:VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
-
 </Package>
