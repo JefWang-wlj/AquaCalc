@@ -2,14 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>鱼缸通用计算器</title>
+    <title>AquaCalcWP</title>
 
     <!-- WinJS references -->
-    <link href="WinJS/css/ui-light.css" rel="stylesheet" />
-    <script src="WinJS/js/base.js"></script>
-    <script src="WinJS/js/ui.js"></script>
+    <!-- At runtime, ui-themed.css resolves to ui-themed.theme-light.css or ui-themed.theme-dark.css 
+    based on the user’s theme setting. This is part of the MRT resource loading functionality. -->
+    <link href="css/ui-themed.theme-light.css" rel="stylesheet" />
+    <script src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+    <script src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
 
-    <!-- AquaCalc references -->
+    <!-- AquaCalcWP references -->
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/default.js"></script>
 
@@ -18,8 +20,7 @@
 
     <script src="/js/calculate.js"></script>
 </head>
-<body class="win-type-body">
-
+<body class="phone">
     <!-- Create AppBar -->
     <!-- BEGINTEMPLATE: Template code for an AppBar -->
     <div id="createAppBar" data-win-control="WinJS.UI.AppBar" data-win-options="{placement:'bottom'}">
@@ -27,8 +28,7 @@
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdBack',label:'返回',icon:'back',tooltip:'返回',section:'primary',onclick:Sample.backCommand}"></button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdCalculate',label:'计算',icon:'go',tooltip:'计算',section:'primary',onclick:Sample.calculateCommand}"></button>
         <!--<button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdShare',label:'收藏夹',icon:'reshare',tooltip:'Share',section:'primary',onclick:Sample.shareCommand}"></button>-->
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdAdvice',label:'意见反馈',section:'secondary',onclick:Sample.mailComand}"></button>
-        <!--<button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdPrint',label:'意见反馈2',section:'secondary',onclick:Sample.printCommand}"></button>-->
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdPrint',label:'意见反馈',section:'secondary',onclick:Sample.mailComand}"></button>
         <!--<hr data-win-control="WinJS.UI.AppBarCommand" data-win-options="{type:'separator',section:'secondary', onclick: Sample.outputCommand}" />
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdAuthor',label:'作者:王林杰',section:'secondary',onclick:Sample.outputCommand}"></button>-->
     </div>
@@ -166,26 +166,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

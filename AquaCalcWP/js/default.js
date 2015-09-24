@@ -33,8 +33,6 @@
                         var runAnimation = document.getElementById("runCalculate");
                         runAnimation.addEventListener("click", runEnterPageAnimation, false);
 
-                        //注册打印事件
-                        //registerForPrintContract();
                     })
                 );
         }
@@ -78,23 +76,6 @@
         // Animate the whole page together
         enterPage = WinJS.UI.Animation.enterPage(output, null);
     }
-
-    //print
-    //function registerForPrintContract() {
-    //    var printManager = Windows.Graphics.Printing.PrintManager.getForCurrentView();
-    //    printManager.onprinttaskrequested = onPrintTaskRequested;
-    //}
-
-    //var gHtmlPrintDocumentSource = null;
-
-    //function onPrintTaskRequested(printEvent) {
-    //    var printTask = printEvent.request.createPrintTask("Print Sample", function (args) {
-    //        args.setSource(gHtmlPrintDocumentSource);
-    //        // Register the handler for print task completion event
-    //        printTask.oncompleted = onPrintTaskCompleted;
-    //    });
-    //}
-    //print
 
     WinJS.Namespace.define("Sample", {
         calculateCommand: WinJS.UI.eventHandler(function (ev) {
@@ -144,24 +125,8 @@
         //    if (command.winControl) {
         //        window.external.addFavorite(window.location.href, '鱼缸计算器的好选择');
         //    }
-        //}),
-
-        //printCommand: WinJS.UI.eventHandler(function (ev) {
-        //    var command = ev.currentTarget;
-        //    if (command.winControl) {
-        //        MSApp.getHtmlPrintDocumentSourceAsync(document.getElementById("output").innerHTML).then(function (htmlPrintDocumentSource) {
-        //            gHtmlPrintDocumentSource = htmlPrintDocumentSource;
-
-        //            // If the print contract is registered, the print experience is invoked.
-        //            Windows.Graphics.Printing.PrintManager.showPrintUIAsync();
-        //        });
-        //    }
- 
-            
         //})
     });
-
-
 
     app.oncheckpoint = function (args) {
         // TODO: This application is about to be suspended. Save any state that needs to persist across suspensions here.
