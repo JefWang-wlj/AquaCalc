@@ -21,6 +21,14 @@
         </uap:DefaultTile>
         <uap:SplashScreen Image="images\splashscreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.protocol" StartPage="default.html">
+          <uap:Protocol Name="aquacalc">
+            <uap:Logo>96x96-400.png</uap:Logo>
+            <uap:DisplayName>鱼缸通用计算器</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

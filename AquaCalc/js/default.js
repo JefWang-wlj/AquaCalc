@@ -35,6 +35,10 @@
 
                         //注册打印事件
                         //registerForPrintContract();
+
+                        //全球化
+                        var topUserLanguage = Windows.System.UserProfile.GlobalizationPreferences.languages[0];
+                        var userLanguage = new Windows.Globalization.Language(topUserLanguage);
                     })
                 );
         }

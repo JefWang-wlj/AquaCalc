@@ -64,6 +64,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="AquaCalc_StoreKey.pfx" />
+    <Content Include="96x96-400.png" />
     <Content Include="css\cssMobile.css" />
     <Content Include="css\cssNormal.css" />
     <Content Include="default.html" />
